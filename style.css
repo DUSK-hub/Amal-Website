@@ -1,6 +1,6 @@
-/* ================================================
-   BASE STYLES & LAYOUT
-   ================================================ */
+/* ========================= */
+/* style.css - Base Styles */
+/* ========================= */
 
 * {
     margin: 0;
@@ -9,624 +9,389 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
-    min-height: 100vh;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* ================================================
-   AUTH SCREEN
-   ================================================ */
+/* RTL Support */
+[dir="rtl"] {
+    text-align: right;
+}
 
-.auth-screen {
+/* Screen Management */
+.screen {
     min-height: 100vh;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ========================= */
+/* Authentication Screen */
+/* ========================= */
+
+#auth-screen {
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 1rem;
-    background: var(--bg-gradient);
+    align-items: center;
+    padding: 20px;
 }
 
 .auth-container {
-    background: var(--bg-secondary);
-    border-radius: 16px;
-    padding: 2rem;
-    max-width: 420px;
     width: 100%;
-    box-shadow: var(--shadow-lg);
+    max-width: 400px;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .auth-header {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 30px;
 }
 
-.auth-title {
+.auth-header h1 {
     font-size: 2.5rem;
-    color: var(--accent-color);
-    margin-bottom: 0.5rem;
+    margin-bottom: 10px;
 }
 
-.auth-subtitle {
-    color: var(--text-secondary);
-    font-size: 1rem;
+.subtitle {
+    font-size: 0.9rem;
+    opacity: 0.8;
 }
 
-.auth-tabs {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.auth-tab {
-    flex: 1;
-    padding: 0.75rem;
-    background: transparent;
-    border: 2px solid var(--border-color);
-    color: var(--text-secondary);
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.2s;
-}
-
-.auth-tab:hover {
-    border-color: var(--accent-color);
-}
-
-.auth-tab.active {
-    background: var(--accent-color);
-    border-color: var(--accent-color);
-    color: white;
-}
-
-.auth-form {
-    animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+.auth-form h2 {
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .form-group {
-    margin-bottom: 1rem;
+    margin-bottom: 20px;
 }
 
 .form-group label {
     display: block;
-    color: var(--text-primary);
-    margin-bottom: 0.5rem;
+    margin-bottom: 8px;
     font-weight: 500;
 }
 
-.input-field {
+.form-group input {
     width: 100%;
-    padding: 0.75rem;
-    border: 2px solid var(--border-color);
-    background: var(--bg-primary);
-    color: var(--text-primary);
+    padding: 12px;
+    border: 2px solid;
     border-radius: 8px;
     font-size: 1rem;
-    transition: border-color 0.2s;
+    transition: border-color 0.3s;
 }
 
-.input-field:focus {
+.form-group input:focus {
     outline: none;
-    border-color: var(--accent-color);
 }
 
-.btn-primary, .btn-secondary {
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+.toggle-auth {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.toggle-auth a {
     font-weight: 600;
-    font-size: 1rem;
-    transition: all 0.2s;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-.btn-primary {
-    background: var(--accent-color);
-    color: white;
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.btn-secondary {
-    background: transparent;
-    color: var(--text-primary);
-    border: 2px solid var(--border-color);
-}
-
-.btn-secondary:hover {
-    border-color: var(--accent-color);
-    color: var(--accent-color);
-}
-
-.btn-full {
-    width: 100%;
-    margin-bottom: 0.5rem;
-}
-
-.auth-message {
-    margin-top: 1rem;
-    padding: 0.75rem;
+.message {
+    padding: 12px;
     border-radius: 8px;
+    margin-top: 20px;
     text-align: center;
     font-size: 0.9rem;
-    display: none;
 }
 
-.auth-message.success {
-    background: rgba(78, 204, 163, 0.1);
-    color: #4ecca3;
-    display: block;
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
 }
 
-.auth-message.error {
-    background: rgba(255, 107, 107, 0.1);
-    color: #ff6b6b;
-    display: block;
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
 }
 
-/* ================================================
-   HEADER
-   ================================================ */
+/* ========================= */
+/* Main App Screen */
+/* ========================= */
 
-.header {
-    padding: 1rem;
-    border-bottom: 1px solid var(--border-color);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: var(--bg-primary);
+header {
+    padding: 20px;
+    border-bottom: 1px solid;
 }
 
 .header-content {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.app-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-primary);
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 .header-actions {
     display: flex;
-    gap: 0.5rem;
+    gap: 10px;
+    align-items: center;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* ========================= */
+/* Buttons */
+/* ========================= */
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    color: white;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid;
 }
 
 .icon-btn {
     background: transparent;
     border: none;
-    color: var(--text-secondary);
+    font-size: 1.5rem;
     cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 8px;
-    transition: all 0.2s;
+    padding: 5px;
+}
+
+/* ========================= */
+/* Dashboard */
+/* ========================= */
+
+.dashboard-wrapper {
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+.dashboard {
+    display: table;
+    border-collapse: collapse;
+    min-width: 100%;
+}
+
+.dashboard-row {
+    display: table-row;
+}
+
+.dashboard-cell {
+    display: table-cell;
+    padding: 12px;
+    text-align: center;
+    border: 1px solid;
+    min-width: 45px;
+    vertical-align: middle;
+}
+
+.dashboard-cell.header-cell {
+    font-weight: 600;
+    position: sticky;
+    left: 0;
+    z-index: 10;
+}
+
+.dashboard-cell.day-cell {
+    font-weight: 600;
+}
+
+.dashboard-cell input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.habit-actions {
     display: flex;
-    align-items: center;
+    gap: 8px;
     justify-content: center;
+    align-items: center;
 }
 
-.icon-btn:hover {
-    background: var(--bg-hover);
-    color: var(--accent-color);
+.delete-habit-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0;
+    opacity: 0.6;
+    transition: opacity 0.3s;
 }
 
-/* ================================================
-   MODAL
-   ================================================ */
+.delete-habit-btn:hover {
+    opacity: 1;
+}
+
+/* ========================= */
+/* Consistency Chart */
+/* ========================= */
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+#consistency-chart {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* ========================= */
+/* Modal */
+/* ========================= */
 
 .modal {
-    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-}
-
-.modal.active {
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
 }
 
 .modal-content {
-    background: var(--bg-secondary);
-    border-radius: 16px;
-    max-width: 500px;
     width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    padding: 30px;
     max-height: 90vh;
     overflow-y: auto;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    animation: slideUp 0.3s ease;
-}
-
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
 }
 
 .modal-header {
-    padding: 1.5rem;
-    border-bottom: 1px solid var(--border-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 20px;
 }
 
-.modal-header h2 {
-    color: var(--text-primary);
-    font-size: 1.25rem;
-}
-
-.modal-close {
-    background: none;
+.close-modal {
+    background: transparent;
     border: none;
     font-size: 2rem;
-    color: var(--text-secondary);
     cursor: pointer;
-    line-height: 1;
-    padding: 0;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
+    opacity: 0.6;
+    transition: opacity 0.3s;
 }
 
-.modal-close:hover {
-    background: var(--bg-hover);
-}
-
-.modal-body {
-    padding: 1.5rem;
+.close-modal:hover {
+    opacity: 1;
 }
 
 .setting-group {
-    margin-bottom: 2rem;
+    margin-bottom: 20px;
 }
 
 .setting-group label {
     display: block;
-    color: var(--text-primary);
+    margin-bottom: 8px;
     font-weight: 600;
-    margin-bottom: 0.75rem;
 }
 
-.button-group {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
-
-.btn-option {
-    padding: 0.5rem 1rem;
-    border: 2px solid var(--border-color);
-    background: var(--bg-primary);
-    color: var(--text-primary);
+.setting-group select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid;
     border-radius: 8px;
+    font-size: 1rem;
     cursor: pointer;
-    font-size: 0.9rem;
-    transition: all 0.2s;
 }
 
-.btn-option:hover {
-    border-color: var(--accent-color);
-}
-
-.btn-option.active {
-    background: var(--accent-color);
-    border-color: var(--accent-color);
-    color: white;
-}
-
-.habits-list {
-    margin-bottom: 1rem;
-}
-
-.habit-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.75rem;
-    background: var(--bg-primary);
-    border-radius: 8px;
-    margin-bottom: 0.5rem;
-}
-
-.habit-item-name {
-    color: var(--text-primary);
-}
-
-.btn-remove {
-    background: none;
-    border: none;
-    color: var(--text-danger);
-    cursor: pointer;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    font-size: 0.85rem;
-}
-
-.btn-remove:hover {
-    background: rgba(255, 0, 0, 0.1);
-}
-
-.add-habit-form {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.add-habit-form .input-field {
-    flex: 1;
-}
-
-/* ================================================
-   MAIN CONTAINER
-   ================================================ */
-
-.main-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 1.5rem 1rem;
-}
-
-.loading-indicator {
-    text-align: center;
-    padding: 3rem 1rem;
-}
-
-.spinner {
-    width: 50px;
-    height: 50px;
-    border: 4px solid var(--border-color);
-    border-top-color: var(--accent-color);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin: 0 auto 1rem;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-/* ================================================
-   MONTH DISPLAY
-   ================================================ */
-
-.month-display {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.month-nav-btn {
-    background: var(--bg-secondary);
-    border: 2px solid var(--border-color);
-    color: var(--text-primary);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.month-nav-btn:hover {
-    border-color: var(--accent-color);
-    color: var(--accent-color);
-}
-
-.month-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 150px;
-}
-
-.month-name, .year-name {
-    color: var(--text-primary);
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-
-/* ================================================
-   HABIT TRACKER GRID
-   ================================================ */
-
-.tracker-container {
-    margin-bottom: 2rem;
-    background: var(--bg-secondary);
-    border-radius: 12px;
-    padding: 1rem;
-    box-shadow: var(--shadow);
-}
-
-.tracker-scroll {
-    overflow-x: auto;
-    overflow-y: visible;
-}
-
-.habit-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    min-width: 800px;
-}
-
-.habit-table thead th {
-    padding: 0.75rem 0.5rem;
-    text-align: center;
-    font-weight: 600;
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-    position: sticky;
-    top: 0;
-    background: var(--bg-secondary);
-    z-index: 10;
-}
-
-.habit-label-cell {
-    text-align: left !important;
-    min-width: 120px;
-    max-width: 120px;
-}
-
-.habit-table tbody tr {
-    border-bottom: 1px solid var(--border-color);
-}
-
-.habit-table tbody td {
-    padding: 0.5rem;
-    text-align: center;
-}
-
-.habit-name {
-    color: var(--text-primary);
-    font-weight: 500;
-    padding: 0.75rem 0.5rem;
-    text-align: left;
-}
-
-.habit-checkbox {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-    accent-color: var(--accent-color);
-    transition: transform 0.2s;
-}
-
-.habit-checkbox:hover {
-    transform: scale(1.1);
-}
-
-.habit-checkbox:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-/* ================================================
-   CHART
-   ================================================ */
-
-.chart-container {
-    background: var(--bg-secondary);
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    box-shadow: var(--shadow);
-}
-
-.chart-title {
-    color: var(--text-primary);
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-}
-
-.chart-wrapper {
-    position: relative;
-    width: 100%;
-    height: 200px;
-}
-
-#consistencyChart {
-    width: 100%;
-    height: 100%;
-}
-
-/* ================================================
-   STATS
-   ================================================ */
-
-.stats-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1rem;
-}
-
-.stat-card {
-    background: var(--bg-secondary);
-    border-radius: 12px;
-    padding: 1.5rem;
-    text-align: center;
-    box-shadow: var(--shadow);
-}
-
-.stat-value {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--accent-color);
-    margin-bottom: 0.5rem;
-}
-
-.stat-label {
-    display: block;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-}
-
-/* ================================================
-   MOBILE OPTIMIZATION
-   ================================================ */
+/* ========================= */
+/* Responsive Design */
+/* ========================= */
 
 @media (max-width: 768px) {
-    .app-title {
-        font-size: 1.25rem;
+    .header-content {
+        flex-direction: column;
+        text-align: center;
     }
 
-    .main-container {
-        padding: 1rem 0.5rem;
-    }
-
-    .month-display {
-        gap: 1rem;
-    }
-
-    .habit-table {
-        min-width: 600px;
-    }
-
-    .habit-table thead th {
-        font-size: 0.75rem;
-        padding: 0.5rem 0.25rem;
-    }
-
-    .habit-checkbox {
-        width: 20px;
-        height: 20px;
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .auth-container {
-        padding: 1.5rem;
+        padding: 30px 20px;
+    }
+
+    .dashboard-cell {
+        padding: 8px;
+        min-width: 40px;
+        font-size: 0.9rem;
+    }
+
+    .dashboard-cell input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
     }
 }
 
 @media (max-width: 480px) {
-    .habit-table {
-        min-width: 500px;
+    .auth-header h1 {
+        font-size: 2rem;
     }
 
-    .auth-title {
-        font-size: 2rem;
+    .dashboard-cell {
+        padding: 6px;
+        min-width: 35px;
+        font-size: 0.85rem;
     }
 }

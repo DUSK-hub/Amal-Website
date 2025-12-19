@@ -1,30 +1,68 @@
-/* ================================================
-   MIDNIGHT THEME (Very Dark & Calm)
-   ================================================ */
-
-:root {
-    /* Background Colors */
-    --bg-primary: #0a0a0f;
-    --bg-secondary: #12121a;
-    --bg-hover: #1a1a25;
-    --bg-gradient: linear-gradient(135deg, #0a0a0f 0%, #050508 100%);
-
-    /* Text Colors */
-    --text-primary: #d0d0d0;
-    --text-secondary: #808080;
-    --text-danger: #ff4757;
-
-    /* Accent Color */
-    --accent-color: #5f9ea0;
-
-    /* Border */
-    --border-color: #1a1a25;
-
-    /* Shadows */
-    --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    --shadow-lg: 0 10px 50px rgba(0, 0, 0, 0.7);
-}
+/* ========================= */
+/* theme-midnight.css */
+/* ========================= */
 
 body {
-    background: var(--bg-gradient);
+    background-color: #0a0e27;
+    color: #b8c5d6;
+}
+
+.auth-container,
+.modal-content {
+    background-color: #151934;
+}
+
+header {
+    background-color: #151934;
+    border-bottom-color: #1e2542;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #4a5fdc 0%, #5b3a7d 100%);
+}
+
+.btn-secondary {
+    color: #6c7ee8;
+    border-color: #6c7ee8;
+}
+
+.btn-secondary:hover {
+    background-color: #6c7ee8;
+    color: #ffffff;
+}
+
+.form-group input,
+.setting-group select {
+    background-color: #0a0e27;
+    color: #b8c5d6;
+    border-color: #1e2542;
+}
+
+.form-group input:focus,
+.setting-group select:focus {
+    border-color: #4a5fdc;
+}
+
+.toggle-auth a {
+    color: #6c7ee8;
+}
+
+.dashboard-cell {
+    background-color: #151934;
+    border-color: #1e2542;
+}
+
+.dashboard-cell.header-cell {
+    background-color: #0a0e27;
+}
+
+.chart-container {
+    background-color: #151934;
+    border: 1px solid #1e2542;
+}
+
+.icon-btn,
+.close-modal,
+.delete-habit-btn {
+    color: #b8c5d6;
 }

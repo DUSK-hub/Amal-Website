@@ -1,30 +1,68 @@
-/* ================================================
-   LIGHT THEME
-   ================================================ */
-
-:root {
-    /* Background Colors */
-    --bg-primary: #ffffff;
-    --bg-secondary: #f8f9fa;
-    --bg-hover: #e9ecef;
-    --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-
-    /* Text Colors */
-    --text-primary: #212529;
-    --text-secondary: #6c757d;
-    --text-danger: #dc3545;
-
-    /* Accent Color */
-    --accent-color: #4ecca3;
-
-    /* Border */
-    --border-color: #dee2e6;
-
-    /* Shadows */
-    --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
-}
+/* ========================= */
+/* theme-light.css */
+/* ========================= */
 
 body {
-    background: var(--bg-gradient);
+    background-color: #f5f5f5;
+    color: #333333;
+}
+
+.auth-container,
+.modal-content {
+    background-color: #ffffff;
+}
+
+header {
+    background-color: #ffffff;
+    border-bottom-color: #e0e0e0;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.btn-secondary {
+    color: #667eea;
+    border-color: #667eea;
+}
+
+.btn-secondary:hover {
+    background-color: #667eea;
+    color: #ffffff;
+}
+
+.form-group input,
+.setting-group select {
+    background-color: #ffffff;
+    color: #333333;
+    border-color: #e0e0e0;
+}
+
+.form-group input:focus,
+.setting-group select:focus {
+    border-color: #667eea;
+}
+
+.toggle-auth a {
+    color: #667eea;
+}
+
+.dashboard-cell {
+    background-color: #ffffff;
+    border-color: #e0e0e0;
+}
+
+.dashboard-cell.header-cell {
+    background-color: #f8f9fa;
+}
+
+.chart-container {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+}
+
+.icon-btn,
+.close-modal,
+.delete-habit-btn {
+    color: #333333;
 }

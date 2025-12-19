@@ -1,0 +1,30 @@
+/* ================================================
+   DARK THEME (Default)
+   ================================================ */
+
+:root {
+    /* Background Colors */
+    --bg-primary: #1e1e2e;
+    --bg-secondary: #2a2a3e;
+    --bg-hover: #3a3a4e;
+    --bg-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+
+    /* Text Colors */
+    --text-primary: #e8e8e8;
+    --text-secondary: #a8a8a8;
+    --text-danger: #ff6b6b;
+
+    /* Accent Color */
+    --accent-color: #4ecca3;
+
+    /* Border */
+    --border-color: #3a3a4e;
+
+    /* Shadows */
+    --shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+body {
+    background: var(--bg-gradient);
+}

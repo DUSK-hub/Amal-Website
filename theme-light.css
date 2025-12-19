@@ -1,0 +1,30 @@
+/* ================================================
+   LIGHT THEME
+   ================================================ */
+
+:root {
+    /* Background Colors */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --bg-hover: #e9ecef;
+    --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+
+    /* Text Colors */
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+    --text-danger: #dc3545;
+
+    /* Accent Color */
+    --accent-color: #4ecca3;
+
+    /* Border */
+    --border-color: #dee2e6;
+
+    /* Shadows */
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
+}
+
+body {
+    background: var(--bg-gradient);
+}

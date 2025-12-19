@@ -1,0 +1,632 @@
+/* ================================================
+   BASE STYLES & LAYOUT
+   ================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ================================================
+   AUTH SCREEN
+   ================================================ */
+
+.auth-screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: var(--bg-gradient);
+}
+
+.auth-container {
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: var(--shadow-lg);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.auth-title {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.auth-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.auth-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.auth-tab {
+    flex: 1;
+    padding: 0.75rem;
+    background: transparent;
+    border: 2px solid var(--border-color);
+    color: var(--text-secondary);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.auth-tab:hover {
+    border-color: var(--accent-color);
+}
+
+.auth-tab.active {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: white;
+}
+
+.auth-form {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.input-field {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.btn-primary, .btn-secondary {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background: var(--accent-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.btn-full {
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.auth-message {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 0.9rem;
+    display: none;
+}
+
+.auth-message.success {
+    background: rgba(78, 204, 163, 0.1);
+    color: #4ecca3;
+    display: block;
+}
+
+.auth-message.error {
+    background: rgba(255, 107, 107, 0.1);
+    color: #ff6b6b;
+    display: block;
+}
+
+/* ================================================
+   HEADER
+   ================================================ */
+
+.header {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg-primary);
+}
+
+.header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.header-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.icon-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-btn:hover {
+    background: var(--bg-hover);
+    color: var(--accent-color);
+}
+
+/* ================================================
+   MODAL
+   ================================================ */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    color: var(--text-primary);
+    font-size: 1.25rem;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.modal-close:hover {
+    background: var(--bg-hover);
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.setting-group {
+    margin-bottom: 2rem;
+}
+
+.setting-group label {
+    display: block;
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.button-group {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.btn-option {
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--border-color);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.btn-option:hover {
+    border-color: var(--accent-color);
+}
+
+.btn-option.active {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: white;
+}
+
+.habits-list {
+    margin-bottom: 1rem;
+}
+
+.habit-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    background: var(--bg-primary);
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.habit-item-name {
+    color: var(--text-primary);
+}
+
+.btn-remove {
+    background: none;
+    border: none;
+    color: var(--text-danger);
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.btn-remove:hover {
+    background: rgba(255, 0, 0, 0.1);
+}
+
+.add-habit-form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.add-habit-form .input-field {
+    flex: 1;
+}
+
+/* ================================================
+   MAIN CONTAINER
+   ================================================ */
+
+.main-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem;
+}
+
+.loading-indicator {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid var(--border-color);
+    border-top-color: var(--accent-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ================================================
+   MONTH DISPLAY
+   ================================================ */
+
+.month-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.month-nav-btn {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.month-nav-btn:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.month-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 150px;
+}
+
+.month-name, .year-name {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* ================================================
+   HABIT TRACKER GRID
+   ================================================ */
+
+.tracker-container {
+    margin-bottom: 2rem;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: var(--shadow);
+}
+
+.tracker-scroll {
+    overflow-x: auto;
+    overflow-y: visible;
+}
+
+.habit-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 800px;
+}
+
+.habit-table thead th {
+    padding: 0.75rem 0.5rem;
+    text-align: center;
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    position: sticky;
+    top: 0;
+    background: var(--bg-secondary);
+    z-index: 10;
+}
+
+.habit-label-cell {
+    text-align: left !important;
+    min-width: 120px;
+    max-width: 120px;
+}
+
+.habit-table tbody tr {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.habit-table tbody td {
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.habit-name {
+    color: var(--text-primary);
+    font-weight: 500;
+    padding: 0.75rem 0.5rem;
+    text-align: left;
+}
+
+.habit-checkbox {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    accent-color: var(--accent-color);
+    transition: transform 0.2s;
+}
+
+.habit-checkbox:hover {
+    transform: scale(1.1);
+}
+
+.habit-checkbox:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ================================================
+   CHART
+   ================================================ */
+
+.chart-container {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.chart-title {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.chart-wrapper {
+    position: relative;
+    width: 100%;
+    height: 200px;
+}
+
+#consistencyChart {
+    width: 100%;
+    height: 100%;
+}
+
+/* ================================================
+   STATS
+   ================================================ */
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.stat-card {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.stat-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* ================================================
+   MOBILE OPTIMIZATION
+   ================================================ */
+
+@media (max-width: 768px) {
+    .app-title {
+        font-size: 1.25rem;
+    }
+
+    .main-container {
+        padding: 1rem 0.5rem;
+    }
+
+    .month-display {
+        gap: 1rem;
+    }
+
+    .habit-table {
+        min-width: 600px;
+    }
+
+    .habit-table thead th {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.25rem;
+    }
+
+    .habit-checkbox {
+        width: 20px;
+        height: 20px;
+    }
+
+    .auth-container {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .habit-table {
+        min-width: 500px;
+    }
+
+    .auth-title {
+        font-size: 2rem;
+    }
+}

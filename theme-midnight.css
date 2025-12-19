@@ -1,0 +1,30 @@
+/* ================================================
+   MIDNIGHT THEME (Very Dark & Calm)
+   ================================================ */
+
+:root {
+    /* Background Colors */
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #12121a;
+    --bg-hover: #1a1a25;
+    --bg-gradient: linear-gradient(135deg, #0a0a0f 0%, #050508 100%);
+
+    /* Text Colors */
+    --text-primary: #d0d0d0;
+    --text-secondary: #808080;
+    --text-danger: #ff4757;
+
+    /* Accent Color */
+    --accent-color: #5f9ea0;
+
+    /* Border */
+    --border-color: #1a1a25;
+
+    /* Shadows */
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 10px 50px rgba(0, 0, 0, 0.7);
+}
+
+body {
+    background: var(--bg-gradient);
+}

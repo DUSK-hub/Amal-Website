@@ -1,18 +1,5 @@
 {
   "version": 2,
-  "name": "amal-habit-tracker",
-  "builds": [
-    {
-      "src": "index.html",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -32,7 +19,7 @@
       ]
     },
     {
-      "source": "/style.css",
+      "source": "/(.*).css",
       "headers": [
         {
           "key": "Cache-Control",
@@ -41,16 +28,7 @@
       ]
     },
     {
-      "source": "/theme-(.*).css",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/app.js",
+      "source": "/(.*).js",
       "headers": [
         {
           "key": "Cache-Control",
